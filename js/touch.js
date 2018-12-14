@@ -10,7 +10,7 @@ function on_touch_start(e) {
 	
 	for ( var i = 0; i < t.length; i++ ) {
 		context.beginPath();
-		context.arc(t[i].pageX - rect.left, t[i].pageY - rect.top, 20, 2 * Math.PI);
+		context.arc(t[i].pageX - rect.left, t[i].pageY - rect.top, 20, 0, 2 * Math.PI);
 		context.stroke();
 	}
 }
