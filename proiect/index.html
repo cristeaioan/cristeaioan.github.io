@@ -24,12 +24,33 @@
             height: 60px;
             background-color: red;
         }
+        .obstacle{
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            background-color: aqua;
+        }
+        #obstacle1{
+            top:25%;
+            left:5%;
+        }
+        #obstacle2{
+            top:50%;
+            right:5%;
+        }
+        #obstacle3{
+            top:75%;
+            left:5%;
+        }
     </style>
 </head>
 
 <body>
     <div id="content">
         <h1>Accelerometer Javascript Test</h1>
+        <div id="obstacle1" class="obstacle" ></div>
+        <div id="obstacle2" class="obstacle" ></div>
+        <div id="obstacle3" class="obstacle" ></div>
         <div id="sphere"></div>
         <div id="home"></div>
     </div>

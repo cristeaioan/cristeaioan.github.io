@@ -1,11 +1,13 @@
 var x = 0, y = 0,
     vx = 0, vy = 0,
     ax = 0, ay = 0,
-    stop = true;
+    stop = false;
 
 var sphere = document.getElementById("sphere"),
-    home = document.getElementById("home");
-
+    home = document.getElementById("home"),
+    obstacle1 = document.getElementById("obstacle1"),
+    obstacle2 = document.getElementById("obstacle2"),
+    obstacle3 = document.getElementById("obstacle3");
 window.addEventListener("devicemotion", on_device_motion);
 
 function on_device_motion(event) {
@@ -24,39 +26,42 @@ function on_device_motion(event) {
         }
         vx = vx * 0.98;
         vy = vy * 0.98;
-        y = parseInt(y + vy / 50);
-        x = parseInt(x + vx / 50);
+        y = parseInt(y + vy / 500);
+        x = parseInt(x + vx / 500);
 
         boundingBoxCheck();
 
-        reachedHome();
+        reachedHome(home,sphere);
+
+        reachedHome(obstacle1,sphere);
+        reachedHome(obstacle2,sphere);
+        reachedHome(obstacle3,sphere);
 
         sphere.style.top = y + "px";
         sphere.style.left = x + "px";
-    }
 
+
+
+    }
 }
 
-function reachedHome(){
-    var x1,x2,x3,x4;
-    x1 = home.offsetLeft;
-    x2 = home.offsetLeft + 60;
-    x3 = home.offsetTop;
-    x4 = home.offsetTop + 60;
-    console.log(x1+ " " + x2 + " " + x3 + " " + x4 );
+function reachedHome(a, b){
+    var aX = a.offsetLeft,
+        aY = a.offsetTop,
+        aWidth = a.clientWidth,
+        aHeight = a.clientHeight,
 
-    var A = [x1,x3],
-        B = [x2,x3],
-        C = [x2,x4],
-        D = [x1,x4];
+        bX = b.offsetLeft,
+        bY = b.offsetTop,
+        bWidth = b.clientWidth,
+        bHeight = b.clientHeight;
 
-    if( (x === A[0] && y === A[1]) ||
-        (x === B[0] && y === B[1]) ||
-        (x === C[0] && y === C[1]) ||
-        (x === D[0] && y === D[1])){
+    if( !( ((aY + aHeight) < bY) ||
+        (aY > (bY + bHeight)) ||
+        ((aX + aWidth) < bX) ||
+        (aX > (bX + bWidth))) ) {
         stop = true;
     }
-
 }
 
 function boundingBoxCheck(){
