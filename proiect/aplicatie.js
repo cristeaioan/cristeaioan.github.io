@@ -1,7 +1,7 @@
 var x = 0, y = 0,
     vx = 0, vy = 0,
     ax = 0, ay = 0,
-    stop = false;
+    stop = true;
 
 var sphere = document.getElementById("sphere"),
     home = document.getElementById("home");
