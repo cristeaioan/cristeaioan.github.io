@@ -31,20 +31,19 @@ function on_device_motion(event) {
         y = parseInt(y + vy / 400);
         x = parseInt(x + vx / 400);
 
+        detectCollision(home, sphere);
+        detectCollision(obstacle1, sphere);
+        detectCollision(obstacle2, sphere);
+        detectCollision(obstacle3, sphere);
+
         boundingBoxCheck();
-
-        detectCollision(home,sphere);
-
-        detectCollision(obstacle1,sphere);
-        detectCollision(obstacle2,sphere);
-        detectCollision(obstacle3,sphere);
 
         sphere.style.top = y + "px";
         sphere.style.left = x + "px";
     }
 }
 
-function detectCollision(a, b){
+function detectCollision(a, b) {
     var aX = a.offsetLeft,
         aY = a.offsetTop,
         aWidth = a.clientWidth,
@@ -63,7 +62,7 @@ function detectCollision(a, b){
     }
 }
 
-function boundingBoxCheck(){
+function boundingBoxCheck() {
     if ( x < 0 ) { x = 0; vx = -vx; }
     if ( y < 0 ) { y = 0; vy = -vy; }
     if ( x > document.documentElement.clientWidth - 20 ) { x = document.documentElement.clientWidth-20; vx = -vx; }
