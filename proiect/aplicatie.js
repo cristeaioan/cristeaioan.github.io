@@ -8,6 +8,8 @@ var sphere = document.getElementById("sphere"),
     obstacle1 = document.getElementById("obstacle1"),
     obstacle2 = document.getElementById("obstacle2"),
     obstacle3 = document.getElementById("obstacle3");
+
+
 window.addEventListener("devicemotion", on_device_motion);
 
 function on_device_motion(event) {
@@ -26,26 +28,23 @@ function on_device_motion(event) {
         }
         vx = vx * 0.98;
         vy = vy * 0.98;
-        y = parseInt(y + vy / 500);
-        x = parseInt(x + vx / 500);
+        y = parseInt(y + vy / 400);
+        x = parseInt(x + vx / 400);
 
         boundingBoxCheck();
 
-        reachedHome(home,sphere);
+        detectCollision(home,sphere);
 
-        reachedHome(obstacle1,sphere);
-        reachedHome(obstacle2,sphere);
-        reachedHome(obstacle3,sphere);
+        detectCollision(obstacle1,sphere);
+        detectCollision(obstacle2,sphere);
+        detectCollision(obstacle3,sphere);
 
         sphere.style.top = y + "px";
         sphere.style.left = x + "px";
-
-
-
     }
 }
 
-function reachedHome(a, b){
+function detectCollision(a, b){
     var aX = a.offsetLeft,
         aY = a.offsetTop,
         aWidth = a.clientWidth,

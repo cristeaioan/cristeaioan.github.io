@@ -22,13 +22,17 @@
             margin: 0 auto;
             width: 60px;
             height: 60px;
-            background-color: red;
+            background: url('home.png');
+            background-position: center;
+            background-size: cover;
         }
         .obstacle{
             position: absolute;
             width: 100px;
             height: 30px;
-            background-color: aqua;
+            background: url('obstacle.png');
+            background-position: center;
+            background-size: cover;
         }
         #obstacle1{
             top:25%;
@@ -46,12 +50,12 @@
 </head>
 
 <body>
+
     <div id="content">
-        <h1>Accelerometer Javascript Test</h1>
+        <div id="sphere"></div>
         <div id="obstacle1" class="obstacle" ></div>
         <div id="obstacle2" class="obstacle" ></div>
         <div id="obstacle3" class="obstacle" ></div>
-        <div id="sphere"></div>
         <div id="home"></div>
     </div>
 
