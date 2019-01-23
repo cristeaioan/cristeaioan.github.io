@@ -7,8 +7,11 @@ var sphere = document.getElementById("sphere"),
     home = document.getElementById("home"),
     obstacle1 = document.getElementById("obstacle1"),
     obstacle2 = document.getElementById("obstacle2"),
-    obstacle3 = document.getElementById("obstacle3");
+    obstacle3 = document.getElementById("obstacle3"),
+    time = document.getElementById("time"),
+    stopwatch = new Stopwatch(time);
 
+stopwatch.start();
 
 window.addEventListener("devicemotion", on_device_motion);
 
@@ -31,6 +34,10 @@ function on_device_motion(event) {
         y = parseInt(y + vy / 400);
         x = parseInt(x + vx / 400);
 
+        if( detectCollision(home, sphere) ) {
+            stop = true;
+            stopwatch.stop();
+        }
         detectCollision(home, sphere);
         detectCollision(obstacle1, sphere);
         detectCollision(obstacle2, sphere);
@@ -54,12 +61,14 @@ function detectCollision(a, b) {
         bWidth = b.clientWidth,
         bHeight = b.clientHeight;
 
-    if( !( ((aY + aHeight) < bY) ||
+    if( ((aY + aHeight) < bY) ||
         (aY > (bY + bHeight)) ||
         ((aX + aWidth) < bX) ||
-        (aX > (bX + bWidth))) ) {
-        stop = true;
+        (aX > (bX + bWidth)) ) {
+        return false;
     }
+
+    return true;
 }
 
 function boundingBoxCheck() {
