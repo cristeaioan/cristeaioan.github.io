@@ -91,10 +91,10 @@ function startGame() {
     modalStart.style.display = 'none';
     modalStop.style.display = 'none';
     resetGame();
+    stopwatch.reset();
 
     setTimeout(function () {
         stop = false;
-        stopwatch.reset();
         stopwatch.start();
     }, 1000);
 }
