@@ -50,7 +50,7 @@ class Stopwatch {
         this.miliseconds = 0;
         this.interval = undefined;
 
-        this.display.innerHTML = this.minutes + ':' + this.seconds + ':' + this.miliseconds;
+        this.display.innerHTML = '00:00:000';
     }
 
 }
