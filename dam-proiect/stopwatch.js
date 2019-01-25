@@ -9,7 +9,10 @@ class Stopwatch {
     }
 
     start() {
-        var that = this;
+        var that = this,
+            displayMinutes,
+            displaySeconds,
+            displayMiliseconds;
 
         that.interval = setInterval(function () {
 
@@ -25,7 +28,14 @@ class Stopwatch {
                 }
             }
 
-            that.display.innerHTML = that.minutes + ':' + that.seconds + ':' + that.miliseconds;
+            displayMinutes = that.minutes < 10 ? '0' + that.minutes : that.minutes;
+            displaySeconds = that.seconds < 10 ? '0' + that.seconds : that.seconds;
+            displayMiliseconds = that.miliseconds < 10 ? '00' + that.miliseconds : that.miliseconds;
+            if( that.miliseconds > 9 && that.miliseconds < 100 ) {
+                displayMiliseconds = '0' + that.miliseconds;
+            }
+
+            that.display.innerHTML = displayMinutes + ':' + displaySeconds + ':' + displayMiliseconds;
 
         }, 10);
     }

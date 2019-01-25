@@ -7,56 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Accelerometer Javascript Test</title>
 
-    <style>
-        body {
-            font-family: helvetica, arial, sans serif;
-        }
-        #sphere {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            background-color: blue;
-        }
-        #home {
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            right: 0;
-            margin: 0 auto;
-            width: 60px;
-            height: 60px;
-            background: url('home.png');
-            background-position: center;
-            background-size: cover;
-        }
-        .obstacle{
-            position: absolute;
-            width: 100px;
-            height: 30px;
-            background: url('obstacle.png');
-            background-position: center;
-            background-size: cover;
-        }
-        #obstacle1{
-            top:25%;
-            left:5%;
-        }
-        #obstacle2{
-            top:50%;
-            right:5%;
-        }
-        #obstacle3{
-            top:75%;
-            left:5%;
-        }
-
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="sphere"></div>
+    <div class="game-bg"></div>
 
-    <div id="time">00:00:0000</div>
+    <div id="time">00:00:000</div>
+
+    <div id="sphere"></div>
 
     <div id="obstacle1" class="obstacle" ></div>
     <div id="obstacle2" class="obstacle" ></div>
@@ -64,6 +23,15 @@
 
     <div id="home"></div>
 
+    <div id="modal-start" class="modal">
+        <h1>Bun venit in joc!</h1>
+        <button id="start">Start</button>
+    </div>
+
+    <div id="modal-stop" class="modal">
+        <h1></h1>
+        <button id="restart">Restart</button>
+    </div>
 
     <script type="text/javascript" src="stopwatch.js"></script>
     <script type="text/javascript" src="aplicatie.js"></script>
