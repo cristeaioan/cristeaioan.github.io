@@ -49,6 +49,8 @@ class Stopwatch {
         this.seconds = 0;
         this.miliseconds = 0;
         this.interval = undefined;
+
+        this.display.innerHTML = this.minutes + ':' + this.seconds + ':' + this.miliseconds;
     }
 
 }
